@@ -1,0 +1,63 @@
+const currentDate = "2019-09-11T10:30";
+  //const currentDate = new Date().toISOString();
+  console.log(currentDate);
+  // const current_datetime = new Date();
+  // const formattedDate = current_datetime.getFullYear() + "-" +
+  // current_datetime.getMonth() + "-" +
+  // current_datetime.getDate() + "T" +
+  //  current_datetime.getHours()
+  // +":"+current_datetime.getMinutes();
+
+  // console.log(formattedDate);
+
+
+
+function GetFormattedDate() {
+    var todayTime = new Date();
+    var month = (todayTime .getMonth() + 1);
+    var day = (todayTime .getDate());
+    var year = (todayTime .getFullYear());
+    var hours = todayTime.getHours();
+    var min = todayTime.getMinutes();
+
+    var formattedDate = year+"-"+month+"-"+day+"T"+hours+":"+min;
+    return formattedDate;
+}
+
+console.log(GetFormattedDate());
+
+var compare_dates = function(date1,date2){
+     if (date1>date2) return ("Date1 > Date2");
+   else if (date1<date2) return ("Date2 > Date1");
+   else return ("Date1 = Date2"); 
+  }
+
+console.log(compare_dates(new Date('11/14/2013 00:00'), new Date()));
+console.log(compare_dates(new Date('11/14/2020 00:01'), new Date()));
+
+
+validateWorkingDays = function(date){
+  var inputDate = new Date(date);
+  var inputDay = inputDate.getDay();
+  console.log(inputDay);
+  if(inputDay>=1 && inputDay<=5){
+    var hours = inputDate.getHours();
+    if(hours>=9 && hours<=17){
+    return true;
+    }else{
+      return false;
+    }
+  }else{
+    return false;
+  }
+}
+
+console.log(validateWorkingDays("2019-09-13T16:30"));
+
+O/P
+
+'2019-9-11T23:53'
+'Date2 > Date1'
+'Date1 > Date2'
+5
+true
