@@ -64,3 +64,34 @@ true
 
 
 format comparision: https://www.w3resource.com/javascript/form/javascript-date-validation.php
+
+
+
+const requiredFormattedDate = "2017-05-24T10:30";
+const currentDate = new Date();
+
+var year = currentDate.getFullYear();
+var month = (currentDate.getMonth()<9)?("0"+(currentDate.getMonth()+1)):(currentDate.getMonth()+1);
+console.log(month);
+var date = (currentDate.getDate()<9)?("0"+currentDate.getDate()):(currentDate.getDate());
+console.log(date);
+var hour = (currentDate.getHours()<9)?("0"+currentDate.getHours()):(currentDate.getHours());
+console.log(hour);
+var minutes = (currentDate.getMinutes()<9)?("0"+currentDate.getMinutes()):(currentDate.getMinutes());
+console.log(minutes);
+
+const currentFormattedDate = year+"-"+month+"-"+date+"T"+hour+":"+minutes;
+console.log(currentFormattedDate);
+
+
+//show value in date picker
+<TextField
+        id="datetime-local"
+        label="Next appointment"
+        type="datetime-local"
+        defaultValue={new Date().toISOString().substring(0,16)}
+        className={classes.textField}
+        InputLabelProps={{
+          shrink: true,
+        }}
+      />
